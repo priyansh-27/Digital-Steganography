@@ -19,7 +19,8 @@ A secure JavaFX-based desktop application that hides and extracts secret message
 
 ### 🏠 Home Screen
 
-<img src="Screenshots/Home.png" alt="Home Screen" width="900"/>
+<img src="![Uploading image.png…]()
+" alt="Home Screen" width="900"/>
 
 ### 🔐 Embed Mode
 
