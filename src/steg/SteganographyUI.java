@@ -59,7 +59,7 @@ public class SteganographyUI extends Application {
     @Override
     public void start(Stage stage) {
         primaryStage = stage;
-        primaryStage.setTitle("Steganography Project (PNG only)");
+        primaryStage.setTitle("Secure Image Steganography System");
 
         Scene scene = new Scene(createMainScreen(), 1150, 600);
         scene.getStylesheets().add(getClass().getResource("stegui.css").toExternalForm());
@@ -76,9 +76,15 @@ public class SteganographyUI extends Application {
         root.setPadding(new Insets(20));
 
         VBox box = new VBox(20);
-        box.setAlignment(Pos.CENTER);
-        Label title = new Label("Steganography Project (PNG)");
-        title.setStyle("-fx-font-size: 22px; -fx-font-weight: bold;");
+box.setAlignment(Pos.CENTER);
+
+Label title = new Label("Secure Image Steganography System");
+title.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
+
+Label subtitle = new Label(
+    "Hide and extract secret messages and files using AES encryption"
+);
+subtitle.setStyle("-fx-font-size: 15px;");
 
         Button embedBtn = new Button("Go to Embed Mode");
         embedBtn.setOnAction(new EventHandler<ActionEvent>() {
@@ -96,7 +102,7 @@ public class SteganographyUI extends Application {
             }
         });
 
-        box.getChildren().addAll(title, embedBtn, extractBtn);
+        box.getChildren().addAll(title, subtitle, embedBtn, extractBtn);
         root.setCenter(box);
         return root;
     }

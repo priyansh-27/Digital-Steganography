@@ -50,51 +50,92 @@ public class StegoApp extends Application {
     @Override
     public void start(Stage stage) {
         this.primaryStage = stage;
-        stage.setTitle("Java Steganography (PNG) — Embed & Extract");
+        stage.setTitle("Secure Image Steganography System");
 
         Scene scene = new Scene(createMainScreen(), 1100, 550);
-        primaryStage.setScene(scene);
+
+scene.getStylesheets().add(
+    getClass().getResource("stegui.css").toExternalForm()
+);
+
+primaryStage.setScene(scene);
         primaryStage.show();
     }
 
     /** Preserve size when switching scenes, clear image/data */
     private void refreshScene(Pane newRoot) {
-        loadedImage = null;
-        imageView.setImage(null);
-        secretFile = null;
+    loadedImage = null;
+    imageView.setImage(null);
+    secretFile = null;
 
-        double w = primaryStage.getWidth();
-        double h = primaryStage.getHeight();
-        Scene newScene = new Scene(newRoot, w, h);
-        primaryStage.setScene(newScene);
-    }
+    double w = primaryStage.getWidth();
+    double h = primaryStage.getHeight();
 
-    private Pane createMainScreen() {
-        VBox box = new VBox(20);
-        box.setAlignment(Pos.CENTER);
-        box.setPadding(new Insets(20));
+    Scene newScene = new Scene(newRoot, w, h);
 
-        Label title = new Label("Steganography Project (PNG only)");
-        title.setStyle("-fx-font-size: 20px; -fx-font-weight: bold;");
+    newScene.getStylesheets().add(
+        getClass().getResource("stegui.css").toExternalForm()
+    );
 
-        Button embedBtn = new Button("Go to Embed Mode");
-        embedBtn.setOnAction(new javafx.event.EventHandler<javafx.event.ActionEvent>() {
-            public void handle(javafx.event.ActionEvent e) {
-                refreshScene(createEmbedPane());
-            }
-        });
+    primaryStage.setScene(newScene);
+}
 
-        Button extractBtn = new Button("Go to Extract Mode");
-        extractBtn.setOnAction(new javafx.event.EventHandler<javafx.event.ActionEvent>() {
-            public void handle(javafx.event.ActionEvent e) {
-                refreshScene(createExtractPane());
-            }
-        });
+  private Pane createMainScreen() {
+    VBox box = new VBox(20);
+    box.setAlignment(Pos.CENTER);
+    box.setPadding(new Insets(20));
 
-        box.getChildren().addAll(title, embedBtn, extractBtn);
-        return box;
-    }
+    Label title = new Label("Secure Image Steganography System");
+    title.setStyle("-fx-font-size: 30px; -fx-font-weight: bold;");
 
+    Label subtitle = new Label(
+            "Hide and extract secret messages and files using AES encryption");
+    subtitle.setStyle("-fx-font-size: 15px;");
+
+    Button embedBtn = new Button("Go to Embed Mode");
+
+    embedBtn.setOnAction(e -> {
+        try {
+            System.out.println("EMBED BUTTON CLICKED");
+
+            Pane pane = createEmbedPane();
+
+            System.out.println("EMBED PANE CREATED");
+
+            refreshScene(pane);
+
+            System.out.println("SCENE CHANGED");
+
+        } catch (Exception ex) {
+            ex.printStackTrace();
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Embed Screen Error");
+            alert.setContentText(ex.toString());
+            alert.showAndWait();
+        }
+    });
+
+    Button extractBtn = new Button("Go to Extract Mode");
+
+    extractBtn.setOnAction(e -> {
+        try {
+            refreshScene(createExtractPane());
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    });
+
+    box.getChildren().addAll(
+            title,
+            subtitle,
+            embedBtn,
+            extractBtn
+    );
+
+    return box;
+}
     private Pane createEmbedPane() {
         BorderPane root = new BorderPane();
         root.setPadding(new Insets(12));
@@ -215,15 +256,17 @@ public class StegoApp extends Application {
         });
 
         audioRadio.setOnAction(new javafx.event.EventHandler<javafx.event.ActionEvent>() {
-            public void handle(javafx.event.ActionEvent e) {
-                messageArea.setDisable(true);
-                chooseFileBtn.setDisable(false);
-            }
-        });
+    public void handle(javafx.event.ActionEvent e) {
+        messageArea.setDisable(true);
+        chooseFileBtn.setDisable(false);
+    }
+});
 
-        usePasswordCheck = new CheckBox("Use password (AES)");
-        passwordField = new PasswordField();
-        passwordField.setDisable(true);
+secretFileLabel = new Label("No file selected");
+
+usePasswordCheck = new CheckBox("Use password (AES)");
+passwordField = new PasswordField();
+passwordField.setDisable(true);
 
         usePasswordCheck.setOnAction(new javafx.event.EventHandler<javafx.event.ActionEvent>() {
             public void handle(javafx.event.ActionEvent e) {
