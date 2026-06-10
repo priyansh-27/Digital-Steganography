@@ -19,24 +19,29 @@ A secure JavaFX-based desktop application that hides and extracts secret message
 
 ### 🏠 Home Screen
 
-<img src="![Uploading image.png…]()
-" alt="Home Screen" width="900"/>
+<img width="1600" height="831" alt="home screen" src="https://github.com/user-attachments/assets/bdd17661-d2e2-4b65-a2b9-f3150463bf4d" />
+
 
 ### 🔐 Embed Mode
 
-<img src="Screenshots/embed-mode.png" alt="Embed Mode" width="900"/>
+<img width="1600" height="827" alt="embed mode" src="https://github.com/user-attachments/assets/8023217a-9d76-445b-97e8-947c5eca92ec" />
+
 
 ### ✅ Message Embedded Successfully
 
-<img src="Screenshots/embed-success.png" alt="Embed Success" width="900"/>
+<img width="1600" height="898" alt="message embedded" src="https://github.com/user-attachments/assets/50bbdd1e-0f48-4422-858b-baddecb8c7e1" />
+
 
 ### 📤 Extract Mode
 
-<img src="Screenshots/extract-mode.png" alt="Extract Mode" width="900"/>
+<img width="1600" height="828" alt="extract mode" src="https://github.com/user-attachments/assets/70dc4caf-1f51-4297-b3ac-653c46f53905" />
+
+
 
 ### 🎉 Successfully Decrypted Message
 
-<img src="Screenshots/Successfully-decrypted.png" alt="Successfully Decrypted" width="900"/>
+<img width="1600" height="802" alt="extracted" src="https://github.com/user-attachments/assets/e19a8519-f70b-4aa2-ab45-0442eeb78d5e" />
+
 
 ---
 
