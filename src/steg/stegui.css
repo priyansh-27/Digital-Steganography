@@ -1,0 +1,65 @@
+/* ===== DARK MULTI-CONTRAST THEME ===== */
+.root {
+    -fx-font-family: "Poppins", "Segoe UI", sans-serif;
+    -fx-background-color: linear-gradient(to bottom right, #1a1a1a, #121212);
+    -fx-text-fill: #e8e8e8;
+}
+
+/* Panel background */
+.control-pane {
+    -fx-background-color: #242424;
+    -fx-border-color: #383838;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 15, 0, 0, 5);
+    -fx-padding: 15px;
+}
+
+/* ===== BUTTON COLOR THEMES ===== */
+.btn-pink {
+    -fx-background-color: linear-gradient(to right, #d4145a, #fbb03b);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+.btn-pink:hover { -fx-opacity: 0.9; }
+
+.btn-green {
+    -fx-background-color: linear-gradient(to right, #11998e, #38ef7d);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+.btn-green:hover { -fx-opacity: 0.9; }
+
+.btn-orange {
+    -fx-background-color: linear-gradient(to right, #ff8008, #ffc837);
+    -fx-text-fill: #222;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+.btn-orange:hover { -fx-opacity: 0.9; }
+
+/* Text fields and area */
+.text-area, .text-field, .password-field {
+    -fx-control-inner-background: #1e1e1e;
+    -fx-text-fill: #e8e8e8;
+    -fx-border-color: #333;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #e0e0e0;
+}
+
+.option-label {
+    -fx-text-fill: #FFFDFA;
+    -fx-font-weight: 600;
+}
+
+.option-pass {
+    -fx-text-fill: #FFFDFA;
+    -fx-font-weight: 600;
+}
